@@ -30,22 +30,21 @@ import { CartProvider, useCart } from '../../hooks/cart';
 const TestComponent: React.FC = () => {
   const { products, addToCart, increment, decrement } = useCart();
 
-  function handleAddToCart(): void {
-    addToCart({
+  async function handleAddToCart(): Promise<void> {
+    await addToCart({
       id: '1234',
       title: 'Test product',
       image_url: 'test',
       price: 1000,
-      quantity: 0,
     });
   }
 
-  function handleIncrement(): void {
-    increment('1234');
+  async function handleIncrement(): Promise<void> {
+    await increment('1234');
   }
 
-  function handleDecrement(): void {
-    decrement('1234');
+  async function handleDecrement(): Promise<void> {
+    await decrement('1234');
   }
 
   return (
